@@ -14,15 +14,15 @@
                 <li><a href="index.html">Home</a></li>
                 <li><a href="stock1.html">1. Stock</a></li>
                 <li><a href="stock2.html">2. Stock</a></li>
-                <h1 class="header-titel">2. Stock</h1>
+                <li class="header-titel"><a  href="index.html">BZZ Immobilienverwaltung</a></li>
             </ul>
         </nav>
     </div>
 
     <script>
-        var timer = null;
+        let timer = null;
         window.addEventListener("scroll", function() {
-            var header = document.querySelector("header");
+            let header = document.querySelector("header");
             clearTimeout(timer);
             if (window.pageYOffset <= 5) {
                 header.classList.remove("fade-out");
