@@ -9,4 +9,4 @@ create table Schueler (
 
 SELECT * from Schueler;
 
-create database Stock2;
+
