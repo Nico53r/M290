@@ -25,7 +25,7 @@
         window.addEventListener("scroll", function() {
             let header = document.querySelector("header");
             clearTimeout(timer);
-            if (window.pageYOffset <= 5) {
+            if (window.scrollY <= 5) {
                 header.classList.remove("fade-out");
                 header.classList.add("fade-in");
             } else {
