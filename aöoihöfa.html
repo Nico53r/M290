@@ -3,50 +3,32 @@
 <head>
     <meta charset="UTF-8">
     <title>BZZ Immobilienverwaltung</title>
-    <style>
-        /* Füge hier CSS-Stile hinzu */
-        body {
-            font-family: Arial, sans-serif;
-            margin: 0;
-            padding: 0;
-            background-color: #f4f4f4;
-        }
-        header {
-            background-color: #333;
-            color: #fff;
-            padding: 20px;
-            text-align: center;
-        }
-        nav {
-            background-color: #444;
-            color: #fff;
-            text-align: center;
-            padding: 10px;
-        }
-        nav a {
-            color: #fff;
-            text-decoration: none;
-            margin: 0 10px;
-        }
-        section {
-            padding: 20px;
-        }
-        footer {
-            background-color: #333;
-            color: #fff;
-            text-align: center;
-            padding: 10px;
-            position: absolute;
-            bottom: 0;
-            width: 100%;
-        }
-    </style>
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
 <header>
     <h1>BZZ Immobilienverwaltung</h1>
+    <script>
+        var timer = null;
+        window.addEventListener("scroll", function() {
+            var header = document.querySelector("header");
+            clearTimeout(timer);
+            if (window.pageYOffset == 0) {
+                header.classList.remove("fade-out");
+                header.classList.add("fade-in");
+            } else {
+                header.classList.remove("fade-in");
+                header.classList.add("fade-out");
+                timer = setTimeout(function() {
+                    header.classList.remove("fade-out");
+                }, 500);
+            }
+        });
+    </script>
 </header>
+
+<img id="headerbild" src="BZZ.jpg">
 
 <section id="start">
     <h2>Startseite</h2>
@@ -58,13 +40,31 @@
     <p>Hier stehen Informationen über mich oder etwas anderes.</p>
 </section>
 
-<section id="kontakt">
-    <h2>Kontakt</h2>
-    <p>Kontaktinformationen wie E-Mail, Telefonnummer usw.</p>
+<section id="info">
+    <h2>Informationen</h2>
+    <p>Hier stehen Informationen über mich oder etwas anderes.</p>
 </section>
 
+<section id="info">
+    <h2>Informationen</h2>
+    <p>Hier stehen Informationen über mich oder etwas anderes.</p>
+</section>
+
+<section id="info">
+    <h2>Informationen</h2>
+    <p>Hier stehen Informationen über mich oder etwas anderes.</p>
+</section>
+
+<section id="kontakt">
+    <h2>Kontakt</h2>
+    <p>Thierry Biland und Nico Roth <br>
+    bilandt@bzz.ch <br>
+    rothn@bzz.ch</p>
+</section>
+
+
 <footer>
-    <p>&copy; 2023 MeineWebsite.com</p>
+    <p>&copy; Copyright 2023</p>
 </footer>
 
 </body>
