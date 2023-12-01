@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="de">
 <head>
     <meta charset="UTF-8">
     <title>BZZ Immobilienverwaltung</title>
@@ -14,7 +14,7 @@
         window.addEventListener("scroll", function() {
             var header = document.querySelector("header");
             clearTimeout(timer);
-            if (window.pageYOffset == 0) {
+            if (window.pageYOffset <= 5) {
                 header.classList.remove("fade-out");
                 header.classList.add("fade-in");
             } else {
@@ -28,34 +28,34 @@
     </script>
 </header>
 
-<img id="headerbild" src="BZZ.jpg">
+<img alt="BZZ Gebäude in Horgen" id="headerbild" src="BZZ.jpg">
 
-<section id="start">
+<section class="start">
     <h2>Startseite</h2>
     <p>Das ist der Inhalt der Startseite.</p>
 </section>
 
-<section id="info">
+<section class="info">
     <h2>Informationen</h2>
     <p>Hier stehen Informationen über mich oder etwas anderes.</p>
 </section>
 
-<section id="info">
+<section class="info">
     <h2>Informationen</h2>
     <p>Hier stehen Informationen über mich oder etwas anderes.</p>
 </section>
 
-<section id="info">
+<section class="info">
     <h2>Informationen</h2>
     <p>Hier stehen Informationen über mich oder etwas anderes.</p>
 </section>
 
-<section id="info">
+<section class="info">
     <h2>Informationen</h2>
     <p>Hier stehen Informationen über mich oder etwas anderes.</p>
 </section>
 
-<section id="kontakt">
+<section class="kontakt">
     <h2>Kontakt</h2>
     <p>Thierry Biland und Nico Roth <br>
     bilandt@bzz.ch <br>
