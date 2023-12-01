@@ -5,7 +5,7 @@ body {
     background-color: #d5d9ff;
 }
 header {
-    background-color: #0004b5;
+    background-color: #030689;
     color: #fff;
     text-align: center;
 }
@@ -27,10 +27,11 @@ footer {
     background-color: #333;
     color: #fff;
     text-align: center;
-    padding: 10px;
-    position: sticky;
+    padding: 40px;
+    position: page;
     bottom: 0;
     width: 100%;
+    opacity: 80%;
 }
 
 
@@ -40,7 +41,7 @@ header {
     justify-content: center;
     width: 100%;
     z-index: 3;
-    background-color: #0004b5;
+    background-color: #030689;
     opacity: 1;
     color: #ffffff;
     transition: opacity 0.3s ease-out;
@@ -59,10 +60,6 @@ header.fade-out {
 header.fade-in {
     opacity: 1;
     transition: opacity 0.3s;
-}
-
-#start {
-    padding-top: 100px;
 }
 
 #headerbild {
