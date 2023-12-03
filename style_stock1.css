@@ -1,0 +1,113 @@
+* {
+    font-family: Satoshi;
+}
+
+header {
+    color: #fff;
+    font-family: Satoshi;
+}
+
+navbar-nav {
+    display: flex;
+}
+nav {
+    color: white;
+}
+nav a {
+    color: white;
+    text-decoration: none;
+}
+section {
+    padding: 20px;
+}
+
+header {
+    color: white;
+    padding: 40px;
+}
+
+main {
+    max-width: 800px;
+    margin: 40px auto;
+    background-color: white;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+section {
+    margin-bottom: 30px;
+}
+
+h2 {
+    color: #333;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+    max-width: 300px;
+}
+
+button {
+    margin-top: 10px;
+    padding: 10px;
+    background-color: #333;
+    color: white;
+    border: none;
+    cursor: pointer;
+}
+
+ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+li {
+    border-bottom: 1px solid #ccc;
+    padding: 5px 0;
+}
+
+textarea {
+    width: 100%;
+    margin-top: 5px;
+    padding: 5px;
+}
+
+body{
+background: linear-gradient(0deg, #090632 0%, #07348d 100%);
+}
+
+section#room-details {
+    margin-bottom: -30px;
+}
+
+select#room {
+    font-size: larger;
+    margin-top: 16px;
+    margin-bottom: 16px;
+}
+
+
+input#date {
+    font-size: larger;
+    margin-top: 16px;
+    margin-bottom: 16px;
+}
+
+button {
+    font-size: larger;
+}
+
+label {
+    font-size: larger;
+    font-weight: bold;
+}
+
+section#reservation{
+    margin-bottom: -30px;
+}
+
+section#comments{
+    margin-bottom: -10px;
+}

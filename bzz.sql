@@ -10,3 +10,5 @@ create table Schueler (
 SELECT * from Schueler;
 
 
+
+
