@@ -8,22 +8,24 @@
 <body>
 
 <header>
-    <h1>BZZ Immobilienverwaltung</h1>
 
+<div>
     <nav class="header">
         <ul class="navbar-nav">
             <li><a href="index.html">Home</a></li>
             <li><a href="stock1.html">1. Stock</a></li>
             <li><a href="stock2.html">2. Stock</a></li>
+            <li class="header-titel"><a  href="index.html">BZZ Immobilienverwaltung</a></li>
         </ul>
     </nav>
+</div>
 
     <script>
-        var timer = null;
+        let timer = null;
         window.addEventListener("scroll", function() {
-            var header = document.querySelector("header");
+            let header = document.querySelector("header");
             clearTimeout(timer);
-            if (window.pageYOffset <= 5) {
+            if (window.scrollY <= 5) {
                 header.classList.remove("fade-out");
                 header.classList.add("fade-in");
             } else {
@@ -31,7 +33,7 @@
                 header.classList.add("fade-out");
                 timer = setTimeout(function() {
                     header.classList.remove("fade-out");
-                }, 500);
+                }, 2000);
             }
         });
     </script>

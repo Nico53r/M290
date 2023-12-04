@@ -3,78 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <title>Title</title>
-    <link rel="stylesheet" href="style_stock1.css">
 </head>
 <body>
-    <header>
-        <h1>Stock 1 Raumreservationen</h1>
 
-        <nav class="header">
-            <ul class="navbar-nav">
-                <li><a href="index.html">Home</a></li>
-                <li><a href="stock1.html">1. Stock</a></li>
-                <li><a href="stock2.html">2. Stock</a></li>
-            </ul>
-        </nav>
-
-        <script>
-            var timer = null;
-            window.addEventListener("scroll", function() {
-                var header = document.querySelector("header");
-                clearTimeout(timer);
-                if (window.pageYOffset <= 5) {
-                    header.classList.remove("fade-out");
-                    header.classList.add("fade-in");
-                } else {
-                    header.classList.remove("fade-in");
-                    header.classList.add("fade-out");
-                    timer = setTimeout(function() {
-                        header.classList.remove("fade-out");
-                    }, 500);
-                }
-            });
-        </script>
-    </header>
-
-
-<main>
-    <section id="room-details">
-        <h2>Raumdetails</h2>
-        <p id="room-info">Bitte wähle einen Raum aus.</p>
-    </section>
-
-    <section id="reservation">
-        <h2>Raumreservierung</h2>
-        <form id="reservation-form">
-            <label for="room">Raum:</label>
-            <select id="room" name="room" onchange="showRoomDetails()">
-                <option value="classroom">Klassenzimmer</option>
-                <option value="it-room">IT-Zimmer</option>
-                <option value="sports-hall">Sporthalle</option>
-            </select>
-
-            <label for="date">Datum:</label>
-            <input type="date" id="date" name="date" required>
-
-            <button type="button" onclick="reserveRoom()">Reservieren</button>
-        </form>
-    </section>
-
-    <section id="comments">
-        <h2>Kommentare</h2>
-        <ul id="comment-list"></ul>
-        <textarea id="comment-text" placeholder="Schreibe einen Kommentar"></textarea>
-        <button onclick="addComment()">Kommentar hinzufügen</button>
-    </section>
-
-    <section id="reschedule">
-        <h2>Terminverschiebung</h2>
-        <label for="new-date">Neues Datum:</label>
-        <input type="date" id="new-date" name="new-date" required>
-        <button onclick="rescheduleReservation()">Termin verschieben</button>
-    </section>
-</main>
-
-<script src="script.js"></script>
 </body>
 </html>

@@ -1,10 +1,63 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="de">
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
+    <title>2. Stock</title>
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
+
+<header>
+    <div>
+        <nav class="header">
+            <ul class="navbar-nav">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="stock1.html">1. Stock</a></li>
+                <li><a href="stock2.html">2. Stock</a></li>
+                <li class="header-titel"><a  href="index.html">BZZ Immobilienverwaltung</a></li>
+            </ul>
+        </nav>
+    </div>
+
+    <script>
+        let timer = null;
+        window.addEventListener("scroll", function() {
+            let header = document.querySelector("header");
+            clearTimeout(timer);
+            if (window.scrollY <= 5) {
+                header.classList.remove("fade-out");
+                header.classList.add("fade-in");
+            } else {
+                header.classList.remove("fade-in");
+                header.classList.add("fade-out");
+                timer = setTimeout(function() {
+                    header.classList.remove("fade-out");
+                }, 2000);
+            }
+        });
+    </script>
+</header>
+
+<img alt="BZZ Gebäude in Horgen" id="headerbild" src="BZZ.jpg">
+
+<section class="start">
+    <h2>Der 2. Stock</h2>
+    <p>Reserviere ein Zimmer im 2. Stock!</p>
+</section>
+
+<section class="info">
+    <h2>Informationen</h2>
+    <p>Hier stehen Informationen über mich oder etwas anderes.</p>
+</section>
+
+<section class="info">
+    <h2>Informationen</h2>
+    <p>Hier stehen Informationen über mich oder etwas anderes.</p>
+</section>
+
+<footer>
+    <i>&copy; Copyright 2023 Bildungszentrum Horgen</i>
+</footer>
 
 </body>
 </html>
