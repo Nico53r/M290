@@ -38,11 +38,13 @@
 
 
 <main>
+
+
     <section id="room-details">
         <h2>Raumdetails</h2>
         <p id="room-info">Bitte wähle einen Raum aus.</p>
     </section>
-
+<!--
     <section id="reservation">
         <h2>Raumreservierung</h2>
         <form id="reservation-form">
@@ -56,9 +58,27 @@
             <label for="date">Datum:</label>
             <input type="date" id="date" name="date" required>
 
-            <button type="button" onclick="reserveRoom()">Reservieren</button>
+            <button type="button" onclick="reserveRoom()" id="reserveButton">Reservieren</button>
+        </form>
+    </section> -->
+
+    <section id="reservation">
+        <h2>Raumreservierung</h2>
+        <form id="reservation-form">
+            <label for="room">Raum:</label>
+            <select id="room" name="room">
+                <option value="classroom">Klassenzimmer</option>
+                <option value="it-room">IT-Zimmer</option>
+                <option value="sports-hall">Sporthalle</option>
+            </select>
+
+            <label for="date">Datum:</label>
+            <input type="date" id="date" name="date" required>
+
+            <button type="button" id="reserveButton">Reservieren</button>
         </form>
     </section>
+
 
     <section id="comments">
         <h2>Kommentare</h2>

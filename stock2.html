@@ -50,6 +50,26 @@
     <p>Hier stehen Informationen über mich oder etwas anderes.</p>
 </section>
 
+
+<section class="schueler-liste">
+    <h2>Schülerliste</h2>
+    <ul id="schueler-liste"></ul>
+</section>
+
+<script>
+    fetch('/schueler')
+        .then(response => response.json())
+        .then(data => {
+            const schuelerListe = document.getElementById('schueler-liste');
+            data.forEach(schueler => {
+                const schuelerEintrag = document.createElement('li');
+                schuelerEintrag.textContent = `ID: ${schueler.id}, Name: ${schueler.name}, Vorname: ${schueler.vorname}`;
+                schuelerListe.appendChild(schuelerEintrag);
+            });
+        })
+        .catch(error => console.error('Fehler:', error));
+</script>
+
 <section class="info">
     <h2>Informationen</h2>
     <p>Hier stehen Informationen über mich oder etwas anderes.</p>

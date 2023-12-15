@@ -7,8 +7,15 @@ create table Schueler (
     vorname     VARCHAR(100)
 );
 
-SELECT * from Schueler;
+create table Reservierungen (
+                          id          INT PRIMARY KEY NOT NULL,
+                          room        VARCHAR(100),
+                          date        VARCHAR(100)
+);
 
+SELECT * from Reservierungen;
 
+insert into Schueler (id, name, vorname)
+values (1, 'Roth', 'Nico');
 
 
