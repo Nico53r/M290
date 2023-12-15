@@ -1,6 +1,12 @@
-{
-  "dependencies": {
-    "express": "^4.18.2",
-    "mysql": "^2.18.1"
+[
+  {
+    "id": 1,
+    "room": "classroom",
+    "date": "2023-12-31"
+  },
+  {
+    "id": 2,
+    "room": "it-room",
+    "date": "2023-12-25"
   }
-}
+]

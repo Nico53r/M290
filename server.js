@@ -21,7 +21,7 @@ connection.connect((err) => {
 });
 
 // Handler für das Formular-POST
-app.post('/reservieren', (req, res) => {
+app.post('/M290/data.json', (req, res) => {
     const id = req.body.id;
     const room = req.body.room;
     const date = req.body.date;
