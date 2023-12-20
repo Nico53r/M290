@@ -38,15 +38,15 @@ function showRoomDetails() {
             break;
     }
 }
-/*
-function reserveRoom() {
+
+/*function reserveRoom() {
     var roomSelect = document.getElementById("room").value;
     var date = document.getElementById("date").value;
 
-    // Hier kannst du die Reservierungsinformationen an den Server senden und in der Datenbank speichern
-    // Beispiel: Du könntest dazu AJAX oder Fetch API verwenden
+
     alert(`Raum ${roomSelect} am ${date} reserviert.`);
-}
+
+}*/
 
 
 
@@ -55,50 +55,12 @@ document.getElementById("reserveButton").addEventListener("click", reserveRoom);
 function reserveRoom() {
     var roomSelect = document.getElementById("room").value;
     var date = document.getElementById("date").value;
-    alert(`Raum ${roomSelect} am ${date} reserviert.`);
-}
-*/
-
-document.getElementById("reserveButton").addEventListener("click", (reserveRoom));
-/*
-function saveAsJSON() {
-    var roomSelect = document.getElementById("room").value;
-    var date = document.getElementById("date").value;
 
     var reservationData = {
         room: roomSelect,
         date: date
     };
 
-    // JSON-Datei erstellen und herunterladen
-    const jsonData = JSON.stringify(reservationData, null, 2);
-    const blob = new Blob([jsonData], { type: 'application/json' });
-    const url = URL.createObjectURL(blob);
-
-    const a = document.createElement('a');
-    a.href = url;
-    a.download = 'reservation_data.json';
-    a.click();
-    URL.revokeObjectURL(url);
-}
-*/
-
-
-
-
-function reserveRoom() {
-    var roomSelect = document.getElementById("room").value;
-    var date = document.getElementById("date").value;
-
-    var reservationData = {
-        room: roomSelect,
-        date: date,
-    };
-
-
-
- /*   const endpointURL = 'http://localhost:63342/M290/package.json'; // Die URL des Endpunkts
-*/
 
     fetch('/M290/data.json', {
         method: 'POST',
