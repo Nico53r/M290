@@ -21,6 +21,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
 function showRoomDetails() {
     var roomSelect = document.getElementById("room");
+    roomSelect.addEventListener("change", showRoomDetails);
     var roomInfo = document.getElementById("room-info");
 
     switch (roomSelect.value) {
@@ -49,7 +50,7 @@ function showRoomDetails() {
 }*/
 
 
-
+/*
 document.getElementById("reserveButton").addEventListener("click", reserveRoom);
 
 function reserveRoom() {
@@ -84,6 +85,49 @@ function reserveRoom() {
             console.error('There was a problem with the reservation:', error);
         });
 }
+*/
+
+
+function reserveRoom() {
+    var roomSelect = document.getElementById("room").value;
+    var date = document.getElementById("date").value;
+    var prename = document.getElementById("prename-text").value;
+    var name = document.getElementById("name-text").value;
+
+    var reservationData = {
+        room: roomSelect,
+        date: date,
+        prename: prename,
+        name: name
+    };
+
+
+    localStorage.setItem('reservationData', JSON.stringify(reservationData));
+
+    fetch('/M290/data.json', {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(reservationData)
+    })
+        .then(response => {
+            if (response.ok) {
+                return response.json();
+            }
+            throw new Error('Network response was not ok.');
+        })
+        .then(data => {
+            if (data) {
+                alert('Reservierung erfolgreich gespeichert!');
+            }
+        })
+        .catch(error => {
+            console.error('There was a problem with the reservation:', error);
+        });
+}
+
+document.getElementById("reserveButton").addEventListener("click", reserveRoom);
 
 function addComment() {
     var commentText = document.getElementById("comment-text").value;
@@ -93,13 +137,28 @@ function addComment() {
         var li = document.createElement("li");
         li.textContent = commentText;
         commentList.appendChild(li);
+
+        saveCommentToLocalStorage(commentText);
+
         document.getElementById("comment-text").value = "";
     }
 }
 
+function saveCommentToLocalStorage(comment) {
+    // Überprüfen, ob bereits Kommentare im localStorage gespeichert sind
+    var comments = JSON.parse(localStorage.getItem('comments')) || [];
+
+    // Kommentar hinzufügen
+    comments.push(comment);
+
+    // Kommentare im localStorage aktualisieren
+    localStorage.setItem('comments', JSON.stringify(comments));
+}
 function loadComments() {
     var commentList = document.getElementById("comment-list");
-    var comments = ["Toller Raum!", "Gut für Besprechungen."];
+    var comments = JSON.parse(localStorage.getItem('comments')) || [];
+
+    commentList.innerHTML = '';
 
     comments.forEach(function (comment) {
         var li = document.createElement("li");
@@ -107,6 +166,11 @@ function loadComments() {
         commentList.appendChild(li);
     });
 }
+
+// Kommentare beim Laden der Seite laden
+window.addEventListener('load', function () {
+    loadComments();
+});
 
 function rescheduleReservation() {
     var newDate = document.getElementById("new-date").value;
