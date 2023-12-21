@@ -77,6 +77,7 @@ select s.name, s.vorname, r.room, r.date, c.comment from Reservierungen r
     inner join schueler s on r.schueler_id = s.id
     inner join comments c on c.schueler_id = s.id;
 
+-- Smart select from students who reservated
 select s.name, s.vorname, r.room, r.date from Reservierungen r
     inner join schueler s on r.schueler_id = s.id;
 
