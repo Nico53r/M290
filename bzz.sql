@@ -81,5 +81,5 @@ select s.name, s.vorname, r.room, r.date from Reservierungen r
     inner join schueler s on r.schueler_id = s.id;
 
 
-drop table comments;
+drop table schueler;
 
