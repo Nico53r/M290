@@ -40,15 +40,6 @@ function showRoomDetails() {
     }
 }
 
-/*function reserveRoom() {
-    var roomSelect = document.getElementById("room").value;
-    var date = document.getElementById("date").value;
-
-
-    alert(`Raum ${roomSelect} am ${date} reserviert.`);
-
-}*/
-
 
 /*
 document.getElementById("reserveButton").addEventListener("click", reserveRoom);
@@ -167,7 +158,6 @@ function loadComments() {
     });
 }
 
-// Kommentare beim Laden der Seite laden
 window.addEventListener('load', function () {
     loadComments();
 });
