@@ -16,6 +16,14 @@ create table Reservierungen (
                             foreign key (schueler_id) references Schueler (id)
 );
 
+create table comments (
+                                id          INT auto_increment PRIMARY KEY,
+                                comment     VARCHAR(100),
+                                schueler_id INTEGER NOT NULL,
+                                constraint comments_ibfk_1
+                                    foreign key (schueler_id) references Schueler (id)
+);
+
 create index schueler_id
     on Reservierungen (schueler_id);
 
@@ -57,8 +65,17 @@ values ('Klassenzimmer', '04.03.2023', 1),
        ('Sporthalle', '31.12.2023', 20);
 
 
-select s.name, s.vorname, r.room, r.date from Reservierungen r
-    inner join schueler s on r.schueler_id = s.id;
+insert into comments (comment, schueler_id)
+values ('Der Raum ist top', 4),
+       ('Konnte viel da lernen', 16),
+       ('Nicht so mein Fall', 2),
+       ('Gerne wieder!', 9),
+       ('Nicht zu empfehlen...', 11);
 
-drop table Reservierungen;
+-- Smart select from students who wrote a comment and reservated
+select s.name, s.vorname, r.room, r.date, c.comment from Reservierungen r
+    inner join schueler s on r.schueler_id = s.id
+    inner join comments c on c.schueler_id = s.id;
+
+drop table comments;
 
