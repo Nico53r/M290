@@ -2,26 +2,26 @@ create database BZZ_Immo;
 use BZZ_Immo;
 
 create table schueler (
-                          id          INT PRIMARY KEY NOT NULL auto_increment,
-                          name        VARCHAR(100),
-                          vorname     VARCHAR(100)
+                        id          INT PRIMARY KEY NOT NULL auto_increment,
+                        name        VARCHAR(100),
+                        vorname     VARCHAR(100)
 );
 
 create table Reservierungen (
-                                id          INT auto_increment PRIMARY KEY,
-                                room        VARCHAR(100),
-                                date        VARCHAR(100),
-                                schueler_id integer not null,
-                                constraint Reservierungen_ibfk_1
-                                    foreign key (schueler_id) references Schueler (id)
+                        id          INT auto_increment PRIMARY KEY,
+                        room        VARCHAR(100),
+                        date        VARCHAR(100),
+                        schueler_id integer not null,
+                        constraint Reservierungen_ibfk_1
+                            foreign key (schueler_id) references Schueler (id)
 );
 
 create table comments (
-                          id          INT auto_increment PRIMARY KEY,
-                          comment     VARCHAR(100),
-                          schueler_id INTEGER NOT NULL,
-                          constraint comments_ibfk_1
-                              foreign key (schueler_id) references Schueler (id)
+                        id          INT auto_increment PRIMARY KEY,
+                        comment     VARCHAR(100),
+                        schueler_id INTEGER NOT NULL,
+                        constraint comments_ibfk_1
+                            foreign key (schueler_id) references Schueler (id)
 );
 
 create index schueler_id
@@ -74,15 +74,12 @@ values ('Der Raum ist top', 4),
 
 -- Smart select from students who wrote a comment and reservated
 select s.name, s.vorname, r.room, r.date, c.comment from Reservierungen r
-                                                             inner join schueler s on r.schueler_id = s.id
-                                                             inner join comments c on c.schueler_id = s.id;
+    inner join schueler s on r.schueler_id = s.id
+    inner join comments c on c.schueler_id = s.id;
 
 select s.name, s.vorname, r.room, r.date from Reservierungen r
-                                                  inner join schueler s on r.schueler_id = s.id;
+    inner join schueler s on r.schueler_id = s.id;
 
 
 drop table comments;
 drop table schueler;
-
-
-bla
