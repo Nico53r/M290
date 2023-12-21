@@ -1,12 +1,12 @@
 [
   {
-    "id": 1,
-    "room": "classroom",
-    "date": "2023-12-31"
+    "room": "Klassenzimmer",
+    "date": "2023-12-31",
+    "schueler_id": 4
   },
   {
-    "id": 2,
-    "room": "it-room",
-    "date": "2023-12-25"
+    "room": "Sporthalle",
+    "date": "2023-12-25",
+    "schueler_id": 19
   }
 ]

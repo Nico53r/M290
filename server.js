@@ -32,9 +32,9 @@ connection.connect((err) => {
 
 
 
-    const sql = 'INSERT INTO BZZ_Immo.Reservierungen (id, room, date, schueler_id) VALUES ?';
+    const sql = 'INSERT INTO BZZ_Immo.Reservierungen (room, date, schueler_id) VALUES ?';
 
-    const values = data.map(item => [item.id, item.room, item.date]);
+    const values = data.map(item => [item.room, item.date, item.schueler_id]);
 
     connection.query(sql, [values], (err) => {
         if (err) {
