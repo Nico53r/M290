@@ -95,7 +95,7 @@ function reserveRoom() {
 
     localStorage.setItem('reservationData', JSON.stringify(reservationData));
 
-    fetch('/M290/data.json', {
+    fetch('http://localhost:63342/reservationData', {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json'

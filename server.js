@@ -15,13 +15,13 @@ const connection = mysql.createConnection({
     database: 'BZZ_Immo'
 });
 
-app.post('/insertData', (req, res) => {
+app.post('/reservationData', (req, res) => {
     const reservationData = req.body;
     /*const jsonData = fs.readFileSync('data.json', 'utf8');
     const data = JSON.parse(jsonData);*/
 
-    const sql = 'INSERT INTO BZZ_Immo.Reservierungen (room, date, schueler_id) VALUES (?, ?, ?)';
-    const values = [reservationData.room, reservationData.date, reservationData.schueler_id];
+    const sql = 'INSERT INTO BZZ_Immo.Reservierungen (room, date, schueler_id) VALUES (?, ?, 1)';
+    const values = [reservationData.room, reservationData.date];
 
     connection.query(sql, [values], (err) => {
         if (err) {
