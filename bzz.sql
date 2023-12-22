@@ -1,6 +1,7 @@
 create database BZZ_Immo;
 use BZZ_Immo;
 
+-- create tables
 create table schueler (
                         id          INT PRIMARY KEY NOT NULL auto_increment,
                         name        VARCHAR(100),
@@ -17,7 +18,7 @@ create table Reservierungen (
 );
 
 create table comments (
-                        id          INT auto_increment PRIMARY KEY,
+                        id          INT auto_increment PRIMARY KEY NOT NULL,
                         comment     VARCHAR(100),
                         schueler_id INTEGER NOT NULL,
                         constraint comments_ibfk_1
@@ -27,29 +28,28 @@ create table comments (
 create index schueler_id
     on Reservierungen (schueler_id);
 
-SELECT * from Reservierungen;
-
+-- fill the tables
 insert into schueler (id, name, vorname)
-values (1, 'Roth', 'Nico'),
-       (2, 'Müller', 'Anna'),
-       (3, 'Schmidt', 'Max'),
-       (4, 'Becker', 'Lena'),
-       (5, 'Wagner', 'Paul'),
-       (6, 'Klein', 'Sophie'),
-       (7, 'Hoffmann', 'Felix'),
-       (8, 'Weber', 'Emma'),
-       (9, 'Schulz', 'David'),
-       (10, 'Koch', 'Laura'),
-       (11, 'Lehmann', 'Benjamin'),
-       (12, 'Herrmann', 'Hannah'),
-       (13, 'Fischer', 'Leon'),
-       (14, 'Schäfer', 'Julia'),
-       (15, 'Peters', 'Sarah'),
-       (16, 'Krause', 'Tim'),
-       (17, 'Meier', 'Melanie'),
-       (18, 'Wolf', 'Lisa'),
-       (19, 'Bauer', 'Simon'),
-       (20, 'Schneider', 'Marie');
+values (0, 'Roth', 'Nico'),
+       (0, 'Müller', 'Anna'),
+       (0, 'Schmidt', 'Max'),
+       (0, 'Becker', 'Lena'),
+       (0, 'Wagner', 'Paul'),
+       (0, 'Klein', 'Sophie'),
+       (0, 'Hoffmann', 'Felix'),
+       (0, 'Weber', 'Emma'),
+       (0, 'Schulz', 'David'),
+       (0, 'Koch', 'Laura'),
+       (0, 'Lehmann', 'Benjamin'),
+       (0, 'Herrmann', 'Hannah'),
+       (0, 'Fischer', 'Leon'),
+       (0, 'Schäfer', 'Julia'),
+       (0, 'Peters', 'Sarah'),
+       (0, 'Krause', 'Tim'),
+       (0, 'Meier', 'Melanie'),
+       (0, 'Wolf', 'Lisa'),
+       (0, 'Bauer', 'Simon'),
+       (0, 'Schneider', 'Marie');
 
 insert into Reservierungen (room, date, schueler_id)
 values ('Klassenzimmer', '04.03.2023', 1),
@@ -72,14 +72,20 @@ values ('Der Raum ist top', 4),
        ('Gerne wieder!', 9),
        ('Nicht zu empfehlen...', 11);
 
--- Smart select from students who wrote a comment and reservated
+
+-- select all the reservations
+SELECT * from Reservierungen;
+
+-- Smart select from students who wrote a comment and reserved
 select s.name, s.vorname, r.room, r.date, c.comment from Reservierungen r
     inner join schueler s on r.schueler_id = s.id
     inner join comments c on c.schueler_id = s.id;
 
+-- Smart select from students who reserved
 select s.name, s.vorname, r.room, r.date from Reservierungen r
     inner join schueler s on r.schueler_id = s.id;
 
-
+-- drop/delete the tables
 drop table comments;
+drop table Reservierungen;
 drop table schueler;
