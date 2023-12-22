@@ -25,8 +25,17 @@ create table comments (
                             foreign key (schueler_id) references Schueler (id)
 );
 
-create index schueler_id
-    on Reservierungen (schueler_id);
+create table rooms (
+                          id        INT auto_increment PRIMARY KEY NOT NULL,
+                          room      VARCHAR(100),
+                          stock     VARCHAR(100)
+);
+
+insert into rooms (id, room, stock)
+values (0, 'Klassenzimmer', '1. Stock'),
+       (0, 'IT Zimmer', '2. Stock'),
+       (0, 'Sporthalle', 'EG');
+
 
 -- fill the tables
 insert into schueler (id, name, vorname)
@@ -85,7 +94,21 @@ select s.name, s.vorname, r.room, r.date, c.comment from Reservierungen r
 select s.name, s.vorname, r.room, r.date from Reservierungen r
     inner join schueler s on r.schueler_id = s.id;
 
+-- Smart select from students who reserved with possibility to filter the floors
+select s.name, s.vorname, r.room, r.date, ro.stock from Reservierungen r
+    inner join schueler s on r.schueler_id = s.id
+    inner join rooms ro on r.room = ro.room
+    where ro.stock = '1. Stock';
+
+UPDATE Reservierungen
+SET room = 'Klassenzimmer'
+WHERE id = 3;
+
+DELETE FROM Reservierungen
+WHERE id = 2;
+
 -- drop/delete the tables
 drop table comments;
 drop table Reservierungen;
 drop table schueler;
+drop table rooms;
