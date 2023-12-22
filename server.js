@@ -1,6 +1,6 @@
 const mysql = require('mysql2');
 const express = require('express');
-const fs = require('fs');
+/*const fs = require('fs');*/
 const path = require('path');
 
 const app = express();
@@ -16,11 +16,12 @@ const connection = mysql.createConnection({
 });
 
 app.post('/insertData', (req, res) => {
-    const jsonData = fs.readFileSync('data.json', 'utf8');
-    const data = JSON.parse(jsonData);
+    const reservationData = req.body;
+    /*const jsonData = fs.readFileSync('data.json', 'utf8');
+    const data = JSON.parse(jsonData);*/
 
-    const sql = 'INSERT INTO BZZ_Immo.Reservierungen (room, date, schueler_id) VALUES ?';
-    const values = data.map(item => [item.room, item.date, item.schueler_id]);
+    const sql = 'INSERT INTO BZZ_Immo.Reservierungen (room, date, schueler_id) VALUES (?, ?, ?)';
+    const values = [reservationData.room, reservationData.date, reservationData.schueler_id];
 
     connection.query(sql, [values], (err) => {
         if (err) {
