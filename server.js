@@ -1,11 +1,12 @@
 const mysql = require('mysql2');
 const express = require('express');
 const fs = require('fs');
+const path = require('path');
 
 const app = express();
 app.use(express.json());
 
-app.use(express.static(__dirname));
+app.use('/M290', express.static(path.join(__dirname)));
 
 const connection = mysql.createConnection({
     host: 'localhost',
@@ -35,6 +36,7 @@ app.post('/insertData', (req, res) => {
 app.listen(63342, () => {
     console.log('Server läuft auf Port 63342');
 });
+
 
 /*
 connection.connect((err) => {
