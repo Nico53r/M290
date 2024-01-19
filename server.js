@@ -10,9 +10,9 @@ app.use('/M290', express.static(path.join(__dirname)));
 
 const connection = mysql.createConnection({
     host: 'localhost',
-    user: 'root',
-    password: 'Yav26741',
-    database: 'BZZ_Immo'
+    database: 'BZZ_Immo',
+    user: 'appAdmin',
+    password: 'appAdminPW'
 });
 
 app.post('/reservationData', (req, res) => {
@@ -37,7 +37,6 @@ app.post('/reservationData', (req, res) => {
 app.listen(63342, () => {
     console.log('Server läuft auf Port 63342');
 });
-
 
 /*
 connection.connect((err) => {
