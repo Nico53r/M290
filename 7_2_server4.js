@@ -1,18 +1,3 @@
-/* *******************************************************************************************
-* Autor: V. Demir, 1/2024
-* *******************************************************************************************
-* Beschreibung:
-* Express-Server, um CRUD-Operationen vom Browser entgegen zunehmen an der DB durchzuführen
-* *******************************************************************************************
-* Hinweise
-* npm install node
-* npm init -y
-* npm install mysql
-* npm install body-parser
-* npm install express
-** ***************************************************************************************** */
-// Referenz: www.npmjs.com/package/mysql
-
 const mysql = require("mysql");
 const express = require('express');
 var app = express();
@@ -81,7 +66,6 @@ app.delete('/Reservierungen/:id', (req, res) => {
         } else {
             console.log(err);
         }
-
     })
 });
 
